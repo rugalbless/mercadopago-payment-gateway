@@ -7,7 +7,7 @@
             <section aria-labelledby="summary-heading" class="bg-tertiary-800 py-12 text-indigo-300 md:px-10 lg:col-start-2 lg:row-start-1 lg:mx-auto lg:w-full lg:max-w-lg lg:bg-transparent lg:px-0 lg:pb-24 lg:pt-0">
                 <div class="mx-auto max-w-2xl px-4 lg:max-w-none lg:px-0">
                     <dl>
-                        <dt class="text-2xl font-bold text-primary-200 ">Resumo</dt>
+                        <dt class="text-2xl font-bold text-gray-50 ">Resumo</dt>
                     </dl>
                     <x-checkout.product-list>
                         <x-checkout.product-item
@@ -20,10 +20,10 @@
                     </x-checkout.product-list>
 
 
-                    <dl class="space-y-6 border-t border-white border-opacity-10 pt-6 text-lg font-medium">
-                        <x-checkout.summary-item title="Subtotal" value="210,00" :is-underlined="true"  value-color="text-neutral-300 " />
-                        <x-checkout.summary-item title="Frete" value="0" :is-underlined="true" value-color="text-neutral-300" />
-                        <x-checkout.summary-item title="Total" value="210,00" :is-last="true" :is-underlined="false" value-color="text-green-400" />
+                    <dl class="space-y-6 border-t border-white border-opacity-10 pt-6 ">
+                        <x-checkout.summary-item title="Subtotal" value="210,00" :is-underlined="true" :issub-info="true"/>
+                        <x-checkout.summary-item title="Frete" value="0" :is-underlined="true" :issub-info="true"/>
+                        <x-checkout.summary-item title="Total" value="210,00" :is-last="true" :is-underlined="false" :issub-info="false" />
                     </dl>
 
 

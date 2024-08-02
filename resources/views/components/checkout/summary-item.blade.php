@@ -4,7 +4,7 @@
         "border-t border-white border-opacity-10 pt-6 text-white" => $isLast ?? false,
     ])
 >
-    <dt class="text-primary-200">{{ $title }}</dt>
-{{--    colocando condição para formtação/estilização do texto --}}
-    <dd class="text-secondary-300 text-2xl font-bold @if($isUnderlined) text-base underline  @endif {{ $valueColor }}">{{ $value }}</dd>
+    {{--    colocando variaveis para passar condições para formatação/estilização do texto --}}
+    <dt class="text-green-600 text-2xl font-extrabold @if($issubInfo)text-base font-normal text-neutral-200  @endif ">{{ $title }}</dt>
+    <dd class="text-secondary-300 text-2xl font-bold @if($isUnderlined) text-sm text-gray-300 underline  @endif ">{{ $value }}</dd>
 </div>
