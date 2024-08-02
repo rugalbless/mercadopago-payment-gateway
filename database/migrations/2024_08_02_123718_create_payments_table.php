@@ -13,7 +13,17 @@ return new class extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
+            $table->string('external_id')->nullable();
+            $table->foreignId('order_id')->constrained();
+            $table->integer('method'); //for enums
+            $table->integer('status'); //for enums
+            $table->integer('installments')->nullable();
+            $table->dateTime('approved_at')->nullable();
+            $table->text('qr_code_64')->nullable();
+            $table->text('qr_code')->nullable();
+            $table->text('ticket_url')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

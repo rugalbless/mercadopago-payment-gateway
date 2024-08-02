@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('feature_skus', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('sku_id')->constrained();
+            $table->foreignId('feature_id')->constrained();
+            $table->string('value');
             $table->timestamps();
         });
     }

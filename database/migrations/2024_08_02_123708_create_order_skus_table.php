@@ -13,7 +13,13 @@ return new class extends Migration
     {
         Schema::create('order_skus', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('order_id')->constrained();
+            $table->foreignId('sku_id')->constrained();
+            $table->json('product');
+            $table->integer('quantity');
+            $table->decimal('unitary_price', 10, 2);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
