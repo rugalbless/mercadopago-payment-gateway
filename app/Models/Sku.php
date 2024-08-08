@@ -32,6 +32,6 @@ class Sku extends Model
     {
         return $this->belongsToMany(Feature::class)
             ->using(FeatureSku::class)
-            ->withPivot(['value']);
+            ->withPivot('value');
     }
 }

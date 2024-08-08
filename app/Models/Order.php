@@ -34,7 +34,7 @@ class Order extends Model {
     {
         return $this->belongsToMany(Sku::class)
             ->using(OrderSku::class)
-            ->withPivot(['quantity', 'unitary_price', 'product']);
+            ->withPivot('quantity', 'unitary_price', 'product');
     }
 
     public function payments(): HasMany
