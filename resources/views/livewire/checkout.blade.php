@@ -10,20 +10,22 @@
                         <dt class="text-2xl font-bold text-gray-50 ">Resumo</dt>
                     </dl>
                     <x-checkout.product-list>
-                        <x-checkout.product-item
-                            name="High Wall Tote"
-                            price="210,00"
-                            :features="['White and black', '15L']"
-                            quantity="2"
-                            image="https://tailwindui.com/img/ecommerce-images/checkout-page-07-product-01.jpg"
-                        />
+                        @foreach($cart['skus'] as $sku)
+                            <x-checkout.product-item
+                                :name="$sku['name']"
+                                :price="$sku['price']"
+                                :features="collect($sku['features'])->map(fn($feature) => $feature['name'] . ': ' .$feature['pivot']['value'])"
+                                :quantity="$sku['pivot']['quantity']"
+                                image="https://tailwindui.com/img/ecommerce-images/checkout-page-07-product-01.jpg"
+                            />
+                        @endforeach
                     </x-checkout.product-list>
 
 
                     <dl class="space-y-6 border-t border-white border-opacity-10 pt-6 ">
-                        <x-checkout.summary-item title="Subtotal" value="210,00" :is-underlined="true" :issub-info="true"/>
+                        <x-checkout.summary-item title="Subtotal" :value="$cart['total']" :is-underlined="true" :issub-info="true"/>
                         <x-checkout.summary-item title="Frete" value="0" :is-underlined="true" :issub-info="true"/>
-                        <x-checkout.summary-item title="Total" value="210,00" :is-last="true" :is-underlined="false" :issub-info="false" />
+                        <x-checkout.summary-item title="Total" :value="$cart['total']" :is-last="true" :is-underlined="false" :issub-info="false" />
                     </dl>
 
 
